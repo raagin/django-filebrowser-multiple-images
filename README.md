@@ -5,7 +5,7 @@ Allow to add multiple images in django-filebrowser module if "image" field exist
 Installation
 ------------
 ```bash
-pip install https://github.com/raagin/django-filebrowser-multiple-images.git
+pip install git+https://github.com/raagin/django-filebrowser-multiple-images.git
 ```
 
 Requirements
