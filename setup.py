@@ -9,7 +9,7 @@ setup(
     name='django-filebrowser-multiple-images',
     version='1.0.0',
     description='Allow to add multiple images if "image" field exists in inline model',
-    long_description=read('README.rst'),
+    long_description=read('README.md'),
     url='',
     download_url='',
     author='Yura Raagin',
