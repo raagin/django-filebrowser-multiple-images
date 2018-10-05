@@ -17,7 +17,9 @@ Using
 -----
 Add 'multiple_images_inline' in INSTALLED_APPS in django settings.
 
-You need 'image' field in your inline model in admin.py add MultipleImagesInlines module to your main admin model not in inline model.
+You need 'image' field in your model that you what to use as inline model in admin.py!
+
+Add MultipleImagesInlines module to your main admin model not in inline model.
 
 ```python
 from multiple_images_inline.admin import MultipleImagesInlines
