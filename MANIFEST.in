@@ -1,0 +1,2 @@
+recursive-include multiple_images_inline/static *
+recursive-include multiple_images_inline/templates *

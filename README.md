@@ -4,9 +4,8 @@ Allow to add multiple images in django-filebrowser module if "image" field exist
 
 Installation
 ------------
-
-```
-pip install https://github.com/raagin/django-filebrowser-multiple-images.git
+```bash
+pip install git+https://github.com/raagin/django-filebrowser-multiple-images.git
 ```
 
 Requirements
@@ -16,12 +15,13 @@ Same as for  https://github.com/sehmaschine/django-filebrowser/
 
 Using
 -----
-Add 'multiple_images_inline' in INSTALLED_APPS in django settings
-You need 'image' field in your inline model
+Add 'multiple_images_inline' in INSTALLED_APPS in django settings.
 
-in admin.py add MultipleImagesInlines module to your main admin model not in inline model.
+You need 'image' field in your model that you what to use as inline model in admin.py!
 
-```
+Add MultipleImagesInlines module to your main admin model not in inline model.
+
+```python
 from multiple_images_inline.admin import MultipleImagesInlines
 
 class YourModelAdmin(MultipleImagesInlines):
