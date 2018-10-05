@@ -1,4 +1,7 @@
 (function(){
+    var lang = document.querySelector('html').getAttribute('lang');
+    var btn_text = (lang == 'RU') ? 'Добавить несколько' : 'Add multiple images';
+
     window.onload = function(){
         if (document.querySelector('body.grp-change-form')) {
             var images_id = document.querySelector('.inline-group .grp-empty-form .vFileBrowseField[name$="image"]').getAttribute('id');
@@ -35,7 +38,7 @@
                 set_multiple_button_href(selector_name, start_index);
                 add_multiple_button.className = 'grp-add-handler';
                 add_multiple_button.style.margin = '0 0 0 10px';
-                add_multiple_button.innerHTML = '<strong>Add multiple images</strong>';
+                add_multiple_button.innerHTML = '<strong>'+ btn_text +'</strong>';
                 set_multiple_button_href(add_multiple_button, selector_name, start_index);
                 add_button.parentNode.insertBefore(add_multiple_button, add_button.nextSibling);
             }
