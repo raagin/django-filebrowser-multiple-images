@@ -8,7 +8,8 @@ def read(fname):
 setup(
     name='django-filebrowser-multiple-images',
     version='1.0.0',
-    description='Allow to add multiple images if "image" field exists in inline model',
+    description='''Add Multiple Images in Inline Model with Django Filebrowser. 
+                    Allow to add multiple images if "image" field exists in inline model''',
     long_description=read('README.md'),
     url='',
     download_url='',
