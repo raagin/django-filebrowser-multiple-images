@@ -32,4 +32,4 @@ Then you should see 'Add multiple images' button in inlines.
 
 ## TODO
 
-1. Column selection (select multiple by click on checkbox in table head)
+when user add/remove inline by tradinional way it should reflect on "add multyple" button (set_multiple_button_href)

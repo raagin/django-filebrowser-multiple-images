@@ -221,6 +221,27 @@
         this.close();
         
     }
+
+    // select all
+    var chbx_all = document.querySelector('#select-all-images');
+    chbx_all.addEventListener('change', function(){
+        files_list = {};
+        if (chbx_all.checked) {
+            for (var i=0; i < inp.length; i++) {
+                var th_inp = inp[i];
+                var file = th_inp.getAttribute('data-file');
+                files_list[i] = JSON.parse(file);
+                th_inp.checked = true;
+            }
+            add_all_button.hidden = false;
+        } else {
+            for (var i=0; i < inp.length; i++) {
+                inp[i].checked = false;
+            }
+            add_all_button.hidden = true;
+        }   
+    });
+    
 </script>
 <style type="text/css">
     [hidden] {
