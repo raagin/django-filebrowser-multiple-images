@@ -29,3 +29,7 @@ class YourModelAdmin(MultipleImagesInlines):
 ```
 
 Then you should see 'Add multiple images' button in inlines.
+
+TODO:
+----
+1. Column selection (select multiple by click on checkbox in table head)
