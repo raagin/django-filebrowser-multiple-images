@@ -36,6 +36,6 @@ setup(
     ],
     zip_safe=False,
     install_requires=[
-        'django-filebrowser>=3.10,<3.11',
+        'django-filebrowser>=3.10,<3.12',
     ],
 )
