@@ -1,11 +1,14 @@
 (function(){
     var lang = document.querySelector('html').getAttribute('lang');
-    var btn_text = (lang == 'RU') ? 'Добавить несколько' : 'Add multiple images';
+    var btn_text = (lang == 'ru') ? 'Добавить несколько' : 'Add multiple images';
 
     window.onload = function(){
         if (document.querySelector('body.grp-change-form')) {
-            var images_id = document.querySelector('.inline-group .grp-empty-form .vFileBrowseField[name$="image"]').getAttribute('id');
-            var images_exists = images_id.match(/id_([a-z]+)-__prefix__-image/);
+            var images, images_id, images_exists;
+                images = document.querySelector('.inline-group .grp-empty-form .vFileBrowseField[name$="image"]');
+            if (! images) return;
+                images_id = images.getAttribute('id');
+                images_exists = images_id.match(/id_([a-z]+)-__prefix__-image/);
             var selector_name,
                 add_button,
                 add_multiple_button,
@@ -17,7 +20,7 @@
             if (images_exists) {
                 selector_name = images_exists[1];
 
-                // Определение id и position
+                // get id и position
                 var expr = new RegExp('id_' + selector_name + '-(\\d+)-image'),
                     expr_res = false;
                     ;
@@ -31,7 +34,7 @@
                     start_index = 0;
                 }
 
-                // Вставка кнопки
+                // Insert button
                 add_button = document.querySelector('#' + selector_name + '-group .grp-module.grp-dynamic-form .grp-add-handler');
                 add_multiple_button = document.createElement('a');
                 add_multiple_button.id = 'add_multiple_button';
