@@ -16,6 +16,15 @@ Same as for  https://github.com/sehmaschine/django-filebrowser/
 ## Using
 
 Add 'multiple_images_inline' in INSTALLED_APPS in django settings.
+Before "filebrowser"
+```python
+INSTALLED_APPS = [
+	...
+	'multiple_images_inline',
+	'filebrowser',
+	...
+]
+```
 
 You need 'image' field in your model that you what to use as inline model in admin.py!
 
