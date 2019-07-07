@@ -8,7 +8,7 @@
                 images = document.querySelector('.inline-group .grp-empty-form .vFileBrowseField[name$="image"]');
             if (! images) return;
                 images_id = images.getAttribute('id');
-                images_exists = images_id.match(/id_([a-z]+)-__prefix__-image/);
+                images_exists = images_id.match(/id_([_a-z]+)-__prefix__-image/);
             var selector_name,
                 add_button,
                 add_multiple_button,
