@@ -49,7 +49,9 @@
     }
 
     function set_multiple_button_href(btn, selector_name, start_index){
-        btn.href = "javascript:FileBrowser.show('id_" + selector_name + "-" + start_index + "-image', '/admin/filebrowser/browse/?pop=4')";
+        var a = document.querySelectorAll('a[href^="javascript:FileBrowser.show"]');
+        var browse_name = a[0].getAttribute('href').match("/admin/(\.*)/browse")[1] || 'filebrowser';
+        btn.href = "javascript:FileBrowser.show('id_" + selector_name + "-" + start_index + "-image', '/admin/" + browse_name + "/browse/?pop=4')";
     }
     window.set_multiple_button_href = set_multiple_button_href;
 })();
