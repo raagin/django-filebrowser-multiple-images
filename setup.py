@@ -35,7 +35,5 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
     zip_safe=False,
-    install_requires=[
-        'django-filebrowser>=3.10,<3.12',
-    ],
+    install_requires=[],
 )
