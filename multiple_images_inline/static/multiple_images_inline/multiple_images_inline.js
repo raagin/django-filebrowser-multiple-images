@@ -25,7 +25,7 @@
                     expr_res = false;
                     ;
                 inline_images = document.querySelectorAll('.grp-dynamic-form .vFileBrowseField[name^=' + selector_name + '][name$="image"]');
-                console.log(inline_images);
+
                 if (inline_images.length) {
                     expr_res = expr.exec(inline_images[inline_images.length - 1].getAttribute('id'));
                 }
