@@ -151,6 +151,7 @@
 <script type="text/javascript">
     var input_id = window.name.replace(/____/g,'-').split("___").join(".");
     var input_data = input_id.match(/id_(.+)-(\d+)-image/);
+    console.log(input_id, input_data);
     var inlines_name = input_data[1];
     var start_index = parseInt(input_data[2]);
     var inline_group_opener = opener.document.querySelector('#' + inlines_name + '-group');
