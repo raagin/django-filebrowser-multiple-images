@@ -168,10 +168,8 @@
 
     function onChange(i){
         return function(e) {
-            var file = e.target.getAttribute('data-file');
-            
             if (e.target.checked) {
-                files_list[i] = JSON.parse(file);
+                files_list[i] = JSON.parse(e.target.dataset.file);
             } else {
                 delete files_list[i];
             }
@@ -226,8 +224,7 @@
         if (chbx_all.checked) {
             for (var i=0; i < inp.length; i++) {
                 var th_inp = inp[i];
-                var file = th_inp.getAttribute('data-file');
-                files_list[i] = JSON.parse(file);
+                files_list[i] = JSON.parse(th_inp.dataset.file);
                 th_inp.checked = true;
             }
             add_all_button.hidden = false;
