@@ -159,22 +159,22 @@
     var add_all_button = document.querySelector('#add_all_button');
     
     
-    var files_list = {};
+    var files_list = [];
     var inp = document.querySelectorAll('input[name="multi_select"]');
 
     for (var i=0; i < inp.length; i++) {
-        inp[i].onchange = onChange(i);
+        inp[i].onchange = onChange;
     }
 
-    function onChange(i){
-        return function(e) {
-            if (e.target.checked) {
-                files_list[i] = JSON.parse(e.target.dataset.file);
-            } else {
-                delete files_list[i];
-            }
-            add_all_button.hidden = !Object.keys(files_list).length;
+    function onChange(e){
+        var file = JSON.parse(e.target.dataset.file);
+        if (e.target.checked) {
+            files_list.push(file);
+        } else {
+            var i = files_list.findIndex(obj => obj.path === file.path);
+            files_list.splice(i, 1);
         }
+        add_all_button.hidden = !Object.keys(files_list).length;
     }
 
     function AddSelected(){
@@ -184,7 +184,7 @@
             current_index = start_index
             ;
 
-        for (i in files_list) {
+        for (var i = 0; i < files_list.length; i++) {
             add_button_opener.click();
             current_inline = inline_group_opener.querySelector('#' + inlines_name + current_index);
             input_id = 'id_' + inlines_name + '-' + current_index + '-image';
