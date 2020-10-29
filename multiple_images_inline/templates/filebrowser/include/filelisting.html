@@ -85,7 +85,7 @@
         <!-- MULTISELECT -->
         {% if query.pop == "101" %}
             <td class="fb_icon">
-            {% if not query.type or query.type in fileobject.format %}
+            {% if fileobject.filetype == "Image" %}
                 <input type="checkbox" name="multi_select" data-file='{"path": "{{ fileobject.path }}", "url": "{{ fileobject.url }}", "thumbnail_version": "{{ thumbnail_version.url }}", "filetype": "{{ fileobject.filetype }}" }'>
                 <span class="file-number"></span>
             {% else %}
@@ -174,16 +174,20 @@
             file.input = e.target;
             files_list.push(file);
         } else {
+            // delete file from list
             var del_index = files_list.findIndex(obj => obj.path === file.path);
             var i = 1;
             files_list.splice(del_index, 1);
+            // unset current number
             e.target.nextElementSibling.innerHTML = '';
+            // renumber all others in list
             files_list.forEach(function(file) {
                 file.input.nextElementSibling.innerHTML = i;
                 i++;
             });
+            chbx_all.checked = false;
         }
-        add_all_button.hidden = !Object.keys(files_list).length;
+        add_all_button.hidden = !files_list.length;
     }
 
     function AddSelected(){
@@ -229,17 +233,21 @@
     // select all
     var chbx_all = document.querySelector('#select-all-images');
     chbx_all.addEventListener('change', function(){
-        files_list = {};
+        files_list = [];
         if (chbx_all.checked) {
             for (var i=0; i < inp.length; i++) {
                 var th_inp = inp[i];
-                files_list[i] = JSON.parse(th_inp.dataset.file);
+                var file = JSON.parse(th_inp.dataset.file);
+                file.input = th_inp;
+                file.input.nextElementSibling.innerHTML = i + 1;
+                files_list.push(file);
                 th_inp.checked = true;
             }
             add_all_button.hidden = false;
         } else {
             for (var i=0; i < inp.length; i++) {
                 inp[i].checked = false;
+                inp[i].nextElementSibling.innerHTML = '';
             }
             add_all_button.hidden = true;
         }   
