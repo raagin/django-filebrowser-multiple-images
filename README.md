@@ -1,4 +1,6 @@
-# Add Multiple Images in Inline Model with Django Filebrowser
+# Project is unmantained!
+
+## Add Multiple Images in Inline Model with Django Filebrowser
 
 Allow to add multiple images in django-filebrowser module if "image" field exists in inline model.
 
